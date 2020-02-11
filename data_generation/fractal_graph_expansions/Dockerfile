@@ -24,6 +24,6 @@ RUN yum install -y python-pip python3-pip virtualenv htop gcc-c++
 # Mount data into the docker
 ADD . /mlperf
 
-RUN pip3 install -r ./requirements.txt
+RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
 
-#ENTRYPOINT ["../../docker_entrypoint.sh"]
+#ENTRYPOINT ["./docker_entrypoint.sh"]
