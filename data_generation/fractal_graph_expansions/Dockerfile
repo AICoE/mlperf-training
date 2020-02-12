@@ -26,7 +26,7 @@ ADD . /mlperf
 
 RUN wget http://files.grouplens.org/datasets/movielens/ml-25m.zip
 RUN unzip ml-25m.zip
-RUN mv ml-25m/ratings.csv data_generation/fractal_graph_expansions/
+RUN mv ml-25m/ratings.csv .
 RUN rm -rf ml-25m/
 
 RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
