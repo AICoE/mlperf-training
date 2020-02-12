@@ -4,8 +4,8 @@ metadata:
   name: image-classification
 spec:
   resources:
-    - name: repo
-      type: git
+    # - name: repo
+    #   type: git
     - name: build-image
       type: image
 
