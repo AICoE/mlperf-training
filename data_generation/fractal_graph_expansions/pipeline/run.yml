@@ -21,7 +21,7 @@ spec:
       command: ["pwd"]
     - name: run
       image: $(inputs.resources.image.url)
-      workingDir: /mlperf/image_classification/tensorflow
+      workingDir: /mlperf/data_generation/fractal_graph_expansions
       securityContext:
         privileged: true
       command: ["/bin/sh", "./run.sh"]
