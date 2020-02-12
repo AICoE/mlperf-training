@@ -3,3 +3,6 @@ apiVersion: image.openshift.io/v1
 metadata:
   name: training
   namespace: mlperf
+spec:
+  lookupPolicy:
+    local: true
