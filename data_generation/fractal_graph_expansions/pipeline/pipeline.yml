@@ -29,5 +29,5 @@ spec:
         inputs:
           - name: image
             resource: build-image
-      runAfter:
-        - build
+      # runAfter:
+      #   - build
