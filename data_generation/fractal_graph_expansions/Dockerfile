@@ -19,7 +19,7 @@ ENV PYENV_ROOT $HOME/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
 RUN yum install -y python-setuptools
-RUN yum install -y python-pip python3-pip virtualenv htop gcc-c++
+RUN yum install -y python-pip python3-pip virtualenv htop wget gcc-c++
 
 # Mount data into the docker
 ADD . /mlperf
