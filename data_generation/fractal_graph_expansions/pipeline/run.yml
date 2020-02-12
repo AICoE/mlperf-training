@@ -24,4 +24,4 @@ spec:
       workingDir: /mlperf/image_classification/tensorflow
       securityContext:
         privileged: true
-      command: ["/bin/sh", "./run_and_time.sh"]
+      command: ["/bin/sh", "./run.sh"]

@@ -7,9 +7,9 @@ spec:
   pipelineRef:
     name: image-classification
   resources:
-  - name: repo
-    resourceRef:
-      name: repo
+  # - name: repo
+  #   resourceRef:
+  #     name: repo
   - name: build-image
     resourceRef:
       name: build-image

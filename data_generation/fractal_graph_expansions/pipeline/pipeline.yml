@@ -10,17 +10,17 @@ spec:
       type: image
 
   tasks:
-    - name: build
-      taskRef:
-        name: buildah
-        kind: Task
-      resources:
-        inputs:
-          - name: source
-            resource: repo
-        outputs:
-          - name: image
-            resource: build-image
+    # - name: build
+    #   taskRef:
+    #     name: buildah
+    #     kind: Task
+    #   resources:
+    #     inputs:
+    #       - name: source
+    #         resource: repo
+    #     outputs:
+    #       - name: image
+    #         resource: build-image
     - name: run
       taskRef:
         name: run
