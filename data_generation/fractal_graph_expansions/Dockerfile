@@ -19,17 +19,16 @@ ENV PYENV_ROOT $HOME/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
 RUN yum install -y python-setuptools
-RUN yum install -y python-pip python3-pip virtualenv htop wget gcc-c++
-
-# Mount data into the docker
-ADD . /mlperf
-
-RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
+RUN yum install -y python-pip python3-pip virtualenv htop wget unzip gcc-c++
 
 RUN wget http://files.grouplens.org/datasets/movielens/ml-25m.zip
 RUN unzip ml-25m.zip
 RUN mv ml-25m/ratings.csv data_generation/fractal_graph_expansions/
 RUN rm -rf ml-25m/
 
+# Mount data into the docker
+ADD . /mlperf
+
+RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
 
 #ENTRYPOINT ["./docker_entrypoint.sh"]
