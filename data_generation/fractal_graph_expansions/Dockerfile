@@ -25,9 +25,9 @@ RUN yum install -y python-pip python3-pip virtualenv htop wget unzip gcc-c++
 ADD . /mlperf
 
 RUN wget http://files.grouplens.org/datasets/movielens/ml-25m.zip
-RUN unzip ml-25m.zip
-RUN mv ml-25m/ratings.csv .
-RUN rm -rf ml-25m/
+RUN mkdir /data
+RUN unzip ml-25m.zip -d /data
+RUN rm -rf ml-25m/ ml-25m.zip
 
 RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
 
