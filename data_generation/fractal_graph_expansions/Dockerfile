@@ -29,6 +29,6 @@ RUN mkdir /data
 RUN unzip ml-25m.zip -d /data
 RUN rm -rf ml-25m/ ml-25m.zip
 
-RUN pip3 install -r ./data_generation/fractal_graph_expansions/requirements.txt
+RUN pip3 install -r ./requirements.txt
 
 #ENTRYPOINT ["./docker_entrypoint.sh"]
