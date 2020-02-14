@@ -1,36 +1,33 @@
-FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
+FROM nvidia/cuda:10.2-cudnn7-runtime-centos7
+#FROM nvidia/cuda:10.2-cudnn7-devel-ubi7
 
 
-WORKDIR /research
+WORKDIR /mlperf
 
-RUN apt-get update
+RUN yum update -y
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN yum update -y && yum install -y \
     ca-certificates \
     build-essential \
     git \
     python \
-    python-pip
+    python-pip \
+    python-devel \
+    python3-devel
 
 
-ENV HOME /research
+ENV HOME /mlperf
 ENV PYENV_ROOT $HOME/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
+RUN yum install -y python-setuptools
 
-RUN apt-get install -y python-setuptools
-
-RUN apt-get install -y python-pip python3-pip virtualenv htop
-RUN pip3 install --upgrade numpy scipy sklearn tf-nightly-gpu
-
+RUN yum install -y python-pip python3-pip virtualenv htop gcc-c++
+RUN pip3 install --upgrade numpy scipy sklearn tensorflow-gpu==1.14.0
 
 # Mount data into the docker
-ADD . /research/resnet
+ADD . /mlperf
 
+RUN pip3 install -r ./requirements.txt
 
-WORKDIR /research/resnet
-RUN pip3 install -r official/requirements.txt
-
-
-ENTRYPOINT ["/bin/bash"]
-
+ENTRYPOINT ["./docker_entrypoint.sh"]
