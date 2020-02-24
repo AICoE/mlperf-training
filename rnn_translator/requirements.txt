@@ -1,0 +1,6 @@
+torch==1.0.1.post2
+torchvision==0.2.2
+pyYAML==5.2
+numpy==1.17.4
+ipython==7.11.1
+mlperf_compliance==0.0.10

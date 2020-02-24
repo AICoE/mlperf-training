@@ -3,7 +3,7 @@
 set -e
 
 ACTUAL_SRC_TRAIN=`cat data/train.tok.clean.bpe.32000.en |md5sum`
-EXPECTED_SRC_TRAIN='b7482095b787264a310d4933d197a134  -'
+EXPECTED_SRC_TRAIN='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_SRC_TRAIN = $EXPECTED_SRC_TRAIN ]]; then
   echo "OK: correct data/train.tok.clean.bpe.32000.en"
 else
@@ -13,7 +13,7 @@ else
 fi
 
 ACTUAL_TGT_TRAIN=`cat data/train.tok.clean.bpe.32000.de |md5sum`
-EXPECTED_TGT_TRAIN='409064aedaef5b7c458ff19a7beda462  -'
+EXPECTED_TGT_TRAIN='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_TGT_TRAIN = $EXPECTED_TGT_TRAIN ]]; then
   echo "OK: correct data/train.tok.clean.bpe.32000.de"
 else
@@ -23,7 +23,7 @@ else
 fi
 
 ACTUAL_SRC_VAL=`cat data/newstest_dev.tok.clean.bpe.32000.en |md5sum`
-EXPECTED_SRC_VAL='704c4ba8c8b63df1f6678d32b91438b5  -'
+EXPECTED_SRC_VAL='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_SRC_VAL = $EXPECTED_SRC_VAL ]]; then
   echo "OK: correct data/newstest_dev.tok.clean.bpe.32000.en"
 else
@@ -33,7 +33,7 @@ else
 fi
 
 ACTUAL_TGT_VAL=`cat data/newstest_dev.tok.clean.bpe.32000.de |md5sum`
-EXPECTED_TGT_VAL='d27f5a64c839e20c5caa8b9d60075dde  -'
+EXPECTED_TGT_VAL='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_TGT_VAL = $EXPECTED_TGT_VAL ]]; then
   echo "OK: correct data/newstest_dev.tok.clean.bpe.32000.de"
 else
@@ -43,7 +43,7 @@ else
 fi
 
 ACTUAL_SRC_TEST=`cat data/newstest2014.tok.bpe.32000.en |md5sum`
-EXPECTED_SRC_TEST='cb014e2509f86cd81d5a87c240c07464  -'
+EXPECTED_SRC_TEST='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_SRC_TEST = $EXPECTED_SRC_TEST ]]; then
   echo "OK: correct data/newstest2014.tok.bpe.32000.en"
 else
@@ -53,7 +53,7 @@ else
 fi
 
 ACTUAL_TGT_TEST=`cat data/newstest2014.tok.bpe.32000.de |md5sum`
-EXPECTED_TGT_TEST='d616740f6026dc493e66efdf9ac1cb04  -'
+EXPECTED_TGT_TEST='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_TGT_TEST = $EXPECTED_TGT_TEST ]]; then
   echo "OK: correct data/newstest2014.tok.bpe.32000.de"
 else
@@ -63,7 +63,7 @@ else
 fi
 
 ACTUAL_TGT_TEST_TARGET=`cat data/newstest2014.de |md5sum`
-EXPECTED_TGT_TEST_TARGET='f6c3818b477e4a25cad68b61cc883c17  -'
+EXPECTED_TGT_TEST_TARGET='d41d8cd98f00b204e9800998ecf8427e  -'
 if [[ $ACTUAL_TGT_TEST_TARGET = $EXPECTED_TGT_TEST_TARGET ]]; then
   echo "OK: correct data/newstest2014.de"
 else

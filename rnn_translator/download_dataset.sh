@@ -16,10 +16,11 @@
 
 set -e
 
-export LANG=C.UTF-8
-export LC_ALL=C.UTF-8
+export LANGUAGE=en_US:en
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-OUTPUT_DIR=${1:-"data"}
+OUTPUT_DIR="/output_dir"
 echo "Writing to ${OUTPUT_DIR}. To change this, set the OUTPUT_DIR environment variable."
 
 OUTPUT_DIR_DATA="${OUTPUT_DIR}/data"
@@ -151,10 +152,10 @@ if [ ! -d "${OUTPUT_DIR}/subword-nmt" ]; then
 fi
 
 # Learn Shared BPE
+cd ${OUTPUT_DIR}/subword-nmt
 for merge_ops in 32000; do
   echo "Learning BPE with merge_ops=${merge_ops}. This may take a while..."
-  cat "${OUTPUT_DIR}/train.tok.clean.de" "${OUTPUT_DIR}/train.tok.clean.en" | \
-    ${OUTPUT_DIR}/subword-nmt/learn_bpe.py -s $merge_ops > "${OUTPUT_DIR}/bpe.${merge_ops}"
+  $(cat "${OUTPUT_DIR}/train.tok.clean.de" "${OUTPUT_DIR}/train.tok.clean.en" | ${OUTPUT_DIR}/subword-nmt/learn_bpe.py -s $merge_ops > "${OUTPUT_DIR}/bpe.${merge_ops}")
 
   echo "Apply BPE with merge_ops=${merge_ops} to tokenized files..."
   for lang in en de; do
@@ -166,8 +167,7 @@ for merge_ops in 32000; do
   done
 
   # Create vocabulary file for BPE
-  cat "${OUTPUT_DIR}/train.tok.clean.bpe.${merge_ops}.en" "${OUTPUT_DIR}/train.tok.clean.bpe.${merge_ops}.de" | \
-    ${OUTPUT_DIR}/subword-nmt/get_vocab.py | cut -f1 -d ' ' > "${OUTPUT_DIR}/vocab.bpe.${merge_ops}"
+  $(cat "${OUTPUT_DIR}/train.tok.clean.bpe.${merge_ops}.en" "${OUTPUT_DIR}/train.tok.clean.bpe.${merge_ops}.de" | ${OUTPUT_DIR}/subword-nmt/get_vocab.py | cut -f1 -d ' ' > "${OUTPUT_DIR}/vocab.bpe.${merge_ops}")
 
 done
 

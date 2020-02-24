@@ -165,7 +165,7 @@ class TextDataset(Dataset):
         """
         logging.info(f'Processing data from {fname}')
         data = []
-        with open(fname) as dfile:
+        with open(fname, encoding="utf-8", errors="ignore") as dfile:
             for idx, line in enumerate(dfile):
                 if max_size and idx == max_size:
                     break
@@ -338,7 +338,7 @@ class LazyParallelDataset(TextDataset):
         """
         logging.info(f'Processing data from {fname}')
         data = []
-        with open(fname) as dfile:
+        with open(fname, encoding="utf-8", errors="ignore") as dfile:
             for idx, line in enumerate(dfile):
                 if max_size and idx == max_size:
                     break

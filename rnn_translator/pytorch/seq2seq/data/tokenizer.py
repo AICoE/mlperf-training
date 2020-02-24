@@ -24,7 +24,7 @@ class Tokenizer:
             vocab = [config.PAD_TOKEN, config.UNK_TOKEN,
                      config.BOS_TOKEN, config.EOS_TOKEN]
 
-            with open(vocab_fname) as vfile:
+            with open(vocab_fname, encoding="utf-8", errors="ignore") as vfile:
                 for line in vfile:
                     vocab.append(line.strip())
 
