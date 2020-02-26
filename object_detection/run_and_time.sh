@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Runs benchmark and reports time to convergence
+source scl_source enable rh-python36 devtoolset-7
 
 pushd pytorch
 

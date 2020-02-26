@@ -4,13 +4,19 @@
 mkdir -p pytorch/datasets/coco
 pushd pytorch/datasets/coco
 
-curl -O https://dl.fbaipublicfiles.com/detectron/coco/coco_annotations_minival.tgz
-tar xzf coco_annotations_minival.tgz
+#curl -O https://dl.fbaipublicfiles.com/detectron/coco/coco_annotations_minival.tgz
+#tar xzf coco_annotations_minival.tgz
 
-curl -O http://images.cocodataset.org/zips/train2014.zip
+
+if [ ! -d train2014 ]; then
+	echo "no dir"
+	curl -O http://images.cocodataset.org/zips/train2014.zip
+fi
 unzip train2014.zip
 
-curl -O http://images.cocodataset.org/zips/val2014.zip
+if [ ! -d val2014 ]; then
+	curl -O http://images.cocodataset.org/zips/val2014.zip
+fi 
 unzip val2014.zip
 
 curl -O http://images.cocodataset.org/annotations/annotations_trainval2014.zip
